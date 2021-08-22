@@ -175,11 +175,71 @@ namespace BusinessRuleEngineTests
         public void WhenPaymenmtType_Membership_ShouldReturn_MembershipOrUpgrade_NotGenerated()
         {
             //Arrange
-            string paymentType = PaymentTypes.UpgradeMembership.ToString();
+            string paymentType = PaymentTypes.UpgradeOrMembership.ToString();
             string expectedResponse = "MembershipOrUpgrade";
 
             //Act
             var actualResponse = "UpgradeMembership_NotGenerated";
+
+            //Assert
+            Assert.NotEqual(expectedResponse, actualResponse);
+        }
+        #endregion
+
+        #region LearningToSkiVideoPaymentType
+        [Fact]
+        public void WhenPaymenmtType_LearningToSkiVideo_ShouldReturn_FirstAddVideoToPackingSlip()
+        {
+            //Arrange
+            string paymentType = PaymentTypes.LearningToSkiVideo.ToString();
+            string expectedResponse = "FirstAddVideoToPackingSlip";
+
+            //Act
+            var actualResponse = "FirstAddVideoToPackingSlip";
+
+            //Assert
+            Assert.Equal(expectedResponse, actualResponse);
+        }
+
+        [Fact]
+        public void WhenPaymenmtType_LearningToSkiVideo_ShouldReturn_FirstAddVideoToPackingSlip_NotGenerated()
+        {
+            //Arrange
+            string paymentType = PaymentTypes.LearningToSkiVideo.ToString();
+            string expectedResponse = "FirstAddVideoToPackingSlip";
+
+            //Act
+            var actualResponse = "FirstAddVideoToPackingSlip_NotGenerated";
+
+            //Assert
+            Assert.NotEqual(expectedResponse, actualResponse);
+        }
+        #endregion
+
+        #region PhysicalProductOrBookPaymentType
+        [Fact]
+        public void WhenPaymenmtType_PhysicalProductOrBook_ShouldReturn_CommissionPaymentToAgent()
+        {
+            //Arrange
+            string paymentType = PaymentTypes.PhysicalProductOrBook.ToString();
+            string expectedResponse = "CommissionPaymentToAgent";
+
+            //Act
+            var actualResponse = "CommissionPaymentToAgent";
+
+            //Assert
+            Assert.Equal(expectedResponse, actualResponse);
+        }
+
+        [Fact]
+        public void WhenPaymenmtType_PhysicalProductOrBook_ShouldReturn_CommissionPaymentToAgent_NotGenerated()
+        {
+            //Arrange
+            string paymentType = PaymentTypes.PhysicalProductOrBook.ToString();
+            string expectedResponse = "CommissionPaymentToAgent";
+
+            //Act
+            var actualResponse = "CommissionPaymentToAgent_NotGenerated";
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
