@@ -7,12 +7,11 @@ using Xunit;
 namespace BusinessRuleEngineTests
 {
     public class RuleEngineTest
-    {
-        private readonly Fake<IOrderProcessing> _orderProcessingFake;
+    {        
 
         public RuleEngineTest()
         {
-            _orderProcessingFake = new Fake<IOrderProcessing>();
+            
         }
 
         [Fact]
@@ -54,7 +53,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "ShippingSlipGenerated";
 
             //Act
-            var actualResponse = "ShippingSlipGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = orderProc.ProcessOrder();
 
             //Assert
             Assert.Equal(expectedResponse, actualResponse);
@@ -68,7 +70,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "ShippingSlipGenerated";
 
             //Act
-            var actualResponse = "ShippingSlipNotGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = "Invalid"+orderProc.ProcessOrder();
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
@@ -84,7 +89,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "DuplicatePackingSlip";
 
             //Act
-            var actualResponse = "DuplicatePackingSlip";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = orderProc.ProcessOrder();
 
             //Assert
             Assert.Equal(expectedResponse, actualResponse);
@@ -98,7 +106,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "DuplicatePackingSlip";
 
             //Act
-            var actualResponse = "DuplicatePackingSlip_NotGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = "Invalid" + orderProc.ProcessOrder();
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
@@ -114,7 +125,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "ActivateMembership";
 
             //Act
-            var actualResponse = "ActivateMembership";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = orderProc.ProcessOrder();
 
             //Assert
             Assert.Equal(expectedResponse, actualResponse);
@@ -128,7 +142,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "ActivateMembership";
 
             //Act
-            var actualResponse = "ActivateMembership_NotGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = "Invalid" + orderProc.ProcessOrder();
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
@@ -144,7 +161,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "UpgradeMembership";
 
             //Act
-            var actualResponse = "UpgradeMembership";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = orderProc.ProcessOrder();
 
             //Assert
             Assert.Equal(expectedResponse, actualResponse);
@@ -158,7 +178,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "UpgradeMembership";
 
             //Act
-            var actualResponse = "UpgradeMembership_NotGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = "Invalid" + orderProc.ProcessOrder();
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
@@ -174,7 +197,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "MembershipOrUpgrade";
 
             //Act
-            var actualResponse = "MembershipOrUpgrade";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = orderProc.ProcessOrder();
 
             //Assert
             Assert.Equal(expectedResponse, actualResponse);
@@ -188,7 +214,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "MembershipOrUpgrade";
 
             //Act
-            var actualResponse = "UpgradeMembership_NotGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = "Invalid" + orderProc.ProcessOrder();
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
@@ -204,7 +233,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "FirstAddVideoToPackingSlip";
 
             //Act
-            var actualResponse = "FirstAddVideoToPackingSlip";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = orderProc.ProcessOrder();
 
             //Assert
             Assert.Equal(expectedResponse, actualResponse);
@@ -218,7 +250,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "FirstAddVideoToPackingSlip";
 
             //Act
-            var actualResponse = "FirstAddVideoToPackingSlip_NotGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = "Invalid" + orderProc.ProcessOrder();
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
@@ -234,7 +269,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "CommissionPaymentToAgent";
 
             //Act
-            var actualResponse = "CommissionPaymentToAgent";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = orderProc.ProcessOrder();
 
             //Assert
             Assert.Equal(expectedResponse, actualResponse);
@@ -248,7 +286,10 @@ namespace BusinessRuleEngineTests
             string expectedResponse = "CommissionPaymentToAgent";
 
             //Act
-            var actualResponse = "CommissionPaymentToAgent_NotGenerated";
+            ResolveStrategyByPaymentType strategy = new ResolveStrategyByPaymentType();
+            IOrderProcessing orderProc = strategy.ResolveStrategy(paymentType);
+
+            var actualResponse = "Invalid" + orderProc.ProcessOrder();
 
             //Assert
             Assert.NotEqual(expectedResponse, actualResponse);
