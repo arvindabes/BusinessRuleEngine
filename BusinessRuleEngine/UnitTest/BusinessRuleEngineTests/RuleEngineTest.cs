@@ -1,4 +1,6 @@
 using BusinessRuleEngine;
+using BusinessRuleEngine.Interface;
+using FakeItEasy;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -6,6 +8,13 @@ namespace BusinessRuleEngineTests
 {
     public class RuleEngineTest
     {
+        private readonly Fake<IOrderProcessing> _orderProcessingFake;
+
+        public RuleEngineTest()
+        {
+            _orderProcessingFake = new Fake<IOrderProcessing>();
+        }
+
         [Fact]
         public void WhenPaymenmtType_NULL_ShouldReturnEmpty()
         {
