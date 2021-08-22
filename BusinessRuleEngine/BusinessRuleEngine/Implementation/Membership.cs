@@ -8,9 +8,9 @@ namespace BusinessRuleEngine.Implementation
     {
         public string ProcessOrder()
         {
-            Console.WriteLine(" activate that membership");
+            Console.WriteLine("activate that membership");
 
-            return "Membership";
+            return "ActivateMembership";
         }
     }
 }
